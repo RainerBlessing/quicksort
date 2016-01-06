@@ -39,16 +39,19 @@ public class QuickSort {
         System.out.println(list);
 
         List<Integer> integers = new ArrayList<>();
+
         if(list.size()>0){
             if(list.size()>1){
 
                 Integer pivot = list.get(0);
+
                 Partition partition = partition(new ArrayList<>(), list.subList(1, list.size()), pivot);
-                List<Integer> sort = sort(partition.lower);
-                List<Integer> sort1 = sort(partition.higher);
-                integers.addAll(sort);
+                List<Integer> sortedL = sort(partition.lower);
+                List<Integer> sortedH = sort(partition.higher);
+
+                integers.addAll(sortedL);
                 integers.add(pivot);
-                integers.addAll(sort1);
+                integers.addAll(sortedH);
 
             }else{
                 integers.addAll(list);
