@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class QuickSort {
@@ -45,13 +46,11 @@ public class QuickSort {
 
                 Integer pivot = list.get(0);
 
-                Partition partition = partition(new ArrayList<>(), list.subList(1, list.size()), pivot);
-                List<Integer> sortedL = sort(partition.lower);
-                List<Integer> sortedH = sort(partition.higher);
+                Partition partition = partition(Collections.emptyList(), list.subList(1, list.size()), pivot);
 
-                integers.addAll(sortedL);
+                integers.addAll(sort(partition.lower));
                 integers.add(pivot);
-                integers.addAll(sortedH);
+                integers.addAll(sort(partition.higher));
 
             }else{
                 integers.addAll(list);
